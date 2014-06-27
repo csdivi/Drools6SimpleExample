@@ -1,0 +1,12 @@
+package sample
+
+import code.sample.Applicant
+import code.sample.Action
+
+rule "Is of valid age"
+when
+    $a : Applicant( age < 10 )
+then
+    $a.setValid( false );
+    new Action($a).doSomething();
+end
